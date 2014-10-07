@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140224203311) do
+ActiveRecord::Schema.define(version: 20141006205338) do
+
+  create_table "starburst_announcement_views", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "announcement_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "starburst_announcements", force: true do |t|
+    t.text     "title"
+    t.text     "body"
+    t.datetime "start_delivering_at"
+    t.datetime "stop_delivering_at"
+    t.text     "limit_to_users"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
